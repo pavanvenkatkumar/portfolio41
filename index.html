@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavan Venkat Kumar Nuni's Portfolio</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 120px; 
+        }
+        /* Resetting defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and overall styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00;
+            transform: scale(1.1);
+        }
+
+        /* Smooth Fade-in Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Hero Section */
+        #hero {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            margin-top: 80px;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        #hero .btn {
+            background-color: #ff8c00;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #hero .btn:hover {
+            background-color: #333;
+            color: #ff8c00;
+        }
+
+        /* About Me Section */
+        #about {
+            padding: 80px 20px;
+            background: #fff;
+            margin-top: 60px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            text-align: justify;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: #f9f9f9;
+            padding: 60px 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background: #fff;
+            padding: 20px;
+            width: 150px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill i {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #fff;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project {
+            background: #f7f7f7;
+            width: 30%;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .project h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* Resume Section */
+        #resume {
+            background: #f9f9f9;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        #resume a {
+            background: #ff8c00;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        #resume a:hover {
+            background: #333;
+        }
+
+        /* Certificates Section */
+        #certificates {
+            background: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .certificate {
+            display: inline-block;
+            background: #f7f7f7;
+            margin: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #f9f9f9;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff8c00;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            font-size: 1.1rem;
+            color: #aaa;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label {
+            top: -10px;
+            font-size: 1rem;
+            color: #ff8c00;
+        }
+
+        .form-group input:valid + label,
+        .form-group textarea:valid + label {
+            top: -10px;
+            font-size: 1rem;
+            color: #ff8c00;
+        }
+
+        .contact-form button {
+            background: #ff8c00;
+            color: #fff;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #333;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff8c00;
+        }
+        .project img{
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Pavan Venkat Kumar Nuni</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Hi, I'm Pavan!</h1>
+        <p>A passionate front-end developer</p>
+        <a href="#about" class="btn">See My Work</a>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Pavan, a front-end developer passionate about crafting interactive and visually appealing web experiences. I specialize in HTML, CSS, JavaScript, and frameworks like React and Vue.js. I’m always excited to learn new things and explore new technologies!</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+            </div>
+            <div class="skill">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+            </div>
+            <div class="skill">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill">
+                <i class="fab fa-react"></i>
+                <h3>React</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-container">
+            <div class="project">
+                <h3>Project 1</h3>
+                <img src="rockgame.jpg">
+                <p>A fully functional ROCK PAPER SCISSORS game.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <h3></h3>
+                <img src="loginform.jpg">
+                <p>A responsive login form .</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <img src="steel.jpg">
+                <p>A clone website of HOLDFAST STEEL LIMITED </p>
+            </div>
+            <div class="project">
+                <h3>Project 4</h3>
+                <img src="takeaway.jpg">
+                <p>A hotels TAKE AWAY MENU CARD.</p>
+            </div>
+            <div class="project">
+                <h3>Project 5</h3>
+                <img src="scaleskip.jpg">
+                <p>A SCALE SKIP's login form.</p>
+            </div>
+            <div class="project">
+                <h3>Project 6</h3>
+                <img src="memory.jpg">
+                <p>A memory game .</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <h2>My Resume</h2>
+        <a href="resume.pdf" download>Download Resume</a>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="certificate">
+            <img src="edyst.jpg" alt="Certificate 1">
+            <p>completed HTML course on edyst and cleared my exam</p>
+        </div>
+        <div class="certificate">
+            <img src="hackerrank.jpg" alt="Certificate 2">
+            <p>compeleted CSS course on hackerrank </p>
+        </div>
+        <div class="certificate">
+            <img src="eduskills.jpg" alt="Certificate 2">
+            <p>attended an virtual internship in eduskills </p>
+        </div>
+        <div class="certificate">
+            <img src="skildizire.jpg" alt="Certificate 2">
+            <p>compeleted hands on internship on IOT technologies</p>
+        </div>
+        <div class="certificate">
+            <img src="cambridge.jpg" alt="Certificate 2">
+            <p>Enhanced my verbal ability through cambridge  </p>
+        </div>
+        <div class="certificate">
+            <img src="spypro.jpg" alt="Certificate 2">
+            <p>attended an handon workshop on IOT with Spy pro solutions </p>
+        </div>
+        <div class="certificate">
+            <img src="infosys.jpg" alt="Certificate 2">
+            <p>compeleted Mangodb in infosys springboard</p>
+        </div>
+        <div class="certificate">
+            <img src="freecodecamp.jpg" alt="Certificate 2">
+            <p>compeleted responsive weeb designing in freecodecamp</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact-form" action="https://formspree.io/f/mnnjnnqv" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" id="name" placeholder=" " required>
+                <label for="name">Your Name</label>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="email" placeholder=" " required>
+                <label for="email">Your Email</label>
+            </div>
+            <div class="form-group">
+                <textarea name="message" id="message" rows="4" placeholder=" " required></textarea>
+                <label for="message">Your Message</label>
+            </div>
+            <!-- Thank You Page Redirection -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="social-icons">
+            
+            <a href="https://instagram.com/in/pavann__chowdary" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/Bannu11111" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/pavanvenkatkumar" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/pavanvenkatkumarnuni" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

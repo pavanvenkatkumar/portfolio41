@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online C Compiler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f4f4f4;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        #editor {
+            width: 90%;
+            height: 300px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        #output {
+            width: 90%;
+            height: 200px;
+            border: 1px solid #ccc;
+            background: black;
+            color: white;
+            padding: 10px;
+            font-family: monospace;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Online C Compiler</h2>
+    
+    <textarea id="editor">// Write your C code here
+#include <stdio.h>
+int main() {
+    printf("Hello, World!");
+    return 0;
+}</textarea>
+
+    <button onclick="runCode()">Run Code</button>
+    
+    <h3>Output:</h3>
+    <div id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+
+    <script>
+        const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "text/x-csrc",
+            lineNumbers: true,
+            theme: "default"
+        });
+
+        function runCode() {
+            const code = editor.getValue();
+            
+            fetch("http://localhost:5000/run", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ code })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = data.output;
+            })
+            .catch(error => {
+                document.getElementById("output").innerText = "Error: " + error;
+            });
+        }
+    </script>
+
+</body>
+</html>

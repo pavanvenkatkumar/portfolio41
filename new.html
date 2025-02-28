@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pavan's Portfolio</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            background: #44da9c;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            transition: background 0.3s;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f5cb90;
+        }
+
+        /* Header Section */
+        header {
+            height: 100vh;
+            background-image: url('https://via.placeholder.com/1600x900.webp'); /* Use WebP for optimized images */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: slideIn 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-top: 20px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-item {
+            width: 300px;
+            height: 200px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            transform: scale(1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease, filter 0.3s ease;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease, transform 0.3s ease;
+        }
+
+        .portfolio-item .text {
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Enhanced Hover Effects */
+        .portfolio-item:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(45deg, #080302, #f0b77e);
+            filter: brightness(1.2);
+        }
+
+        .portfolio-item:hover img {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .text {
+            transform: translateY(-10px);
+            color: #fff;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .skill-card {
+            width: 30%;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            background-color: #fe8f8f;
+            color: #e96262;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(45deg, #080302, #f0b77e);
+            filter: brightness(1.2);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .skill-card p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Resume Section */
+        /* Resume Section */
+#resume {
+    margin-top: 50px;
+    text-align: center;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#resume h2 {
+    font-size: 2.5rem;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#resume p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+#resume .education {
+    text-align: left;
+    margin-bottom: 30px;
+    display: inline-block;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+}
+
+#resume .education h3 {
+    font-size: 2rem;
+    color: #ff7e5f;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+#resume .education ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+#resume .education ul li {
+    margin-bottom: 10px;
+}
+
+.resume-btn {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff7e5f;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.resume-btn:hover {
+    background-color: #f0b77e;
+    transform: translateY(-5px);
+}
+
+
+        /* Certifications Section */
+        .certifications {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .certifications h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .certifications .cert-card {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .certifications .cert-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            background-color: #ff7e5f;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(45deg, #080302, #f0b77e);
+            filter: brightness(1.2);
+        }
+
+        .certifications .cert-card h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .certifications .cert-card p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #222;
+            border-radius: 10px;
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #ff7e5f;
+            margin-bottom: 30px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #333;
+            color: #fff;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #ff7e5f;
+        }
+
+        .contact-form button {
+            background-color: #ff7e5f;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.3rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #f0b77e;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #ff7e5f;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .portfolio-item {
+                width: 100%;
+                height: auto;
+            }
+
+            .skills {
+                flex-direction: column;
+            }
+
+            .skill-card {
+                width: 100%;
+            }
+
+            .resume a {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .contact-form input, .contact-form textarea {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Pavan's Portfolio</h1>&nbsp;
+    <p>welcome to my portfolio!</p>
+</header>
+
+<nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="portfolio" class="fade-in">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="portfolio">
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x200.webp" alt="Project 1">
+                <div class="text">
+                    <h3>Project 1</h3>
+                    <p>Web Development Project</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x200.webp" alt="Project 2">
+                <div class="text">
+                    <h3>Project 2</h3>
+                    <p>App Development Project</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x200.webp" alt="Project 3">
+                <div class="text">
+                    <h3>Project 3</h3>
+                    <p>UI/UX Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+            <div class="skill-card">
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript, React</p>
+            </div>
+            <div class="skill-card">
+                <h3>Mobile App Development</h3>
+                <p>React Native, Flutter, Kotlin</p>
+            </div>
+            <div class="skill-card">
+                <h3>UI/UX Design</h3>
+                <p>Figma, Sketch, Adobe XD</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="fade-in">
+        <h2 class="section-title">Resume</h2>
+        <p>View or download my resume to learn more about my professional experience, education, and skills.</p>
+    
+        <!-- Education Qualification -->
+        <div class="education">
+            <h3>Education Qualification</h3>
+            <ul>
+                <li><strong>Bachelor of Technology (B.Tech)</strong> - XYZ University, 2024</li>
+                <li><strong>Higher Secondary</strong> - ABC School, 2020</li>
+                <li><strong>Secondary School</strong> - DEF School, 2018</li>
+            </ul>
+        </div>
+    
+        <a href="resume.pdf" class="resume-btn">View Resume</a>
+    </section>
+    
+    <section id="certifications" class="fade-in">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certifications">
+            <div class="cert-card">
+                <h3>Certification 1</h3>
+                <p>Certificate in Web Development</p>
+            </div>
+            <div class="cert-card">
+                <h3>Certification 2</h3>
+                <p>Mobile App Development</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Contact</h2>
+        <form class="contact-form" action="submit_form.php" method="POST">
+            <h2>Contact Me</h2>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 Pavan Venkat Kumar Nuni | <a href="https://www.linkedin.com/in/pavan-nuni">LinkedIn</a></p>
+</footer>
+
+<script>
+    // Fade in effects
+    window.addEventListener("scroll", function() {
+        const sections = document.querySelectorAll(".fade-in");
+        sections.forEach(function(section) {
+            if (section.getBoundingClientRect().top < window.innerHeight) {
+                section.classList.add("visible");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
